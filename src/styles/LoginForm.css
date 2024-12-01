@@ -1,0 +1,109 @@
+/* Estilos para LoginForm */
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-header img {
+  width: 400px;
+  margin-bottom: 1rem;
+}
+
+.login-header h1 {
+  font-size: 24px;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.input-icon {
+  margin-right: 0.5rem;
+  color: #888;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.login-button {
+  background-color: #5c9cf2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: #4a8de4;
+}
+
+.login-links {
+  font-size: 14px;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.login-links a {
+  color: #5c9cf2;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  color: #4a8de4;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.signup-link {
+  font-size: 14px;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #5c9cf2;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signup-link a:hover {
+  color: #4a8de4;
+}
