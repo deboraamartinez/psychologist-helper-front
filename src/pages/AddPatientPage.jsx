@@ -5,11 +5,15 @@ import "../styles/AddPatientPage.css";
 
 const AddPatientPage = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     phoneNumber: "",
     emergencyContactName: "",
     emergencyPhone: "",
+    status: "ENABLED",
+    role: [
+      "PATIENT"
+    ],
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -38,7 +42,7 @@ const AddPatientPage = () => {
         <input
           type="text"
           name="name"
-          value={formData.name}
+          value={formData.fullName}
           onChange={handleChange}
           required
         />
