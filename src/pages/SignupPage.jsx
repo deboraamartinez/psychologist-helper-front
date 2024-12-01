@@ -14,7 +14,7 @@ const SignupPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const validatePhoneNumber = (phoneNumber) =>  
+  const validatePhoneNumber = (phoneNumber) => { 
     const phoneRegex = /^\+55\d{11}$/;
     return phoneRegex.test(phoneNumber);
   };
@@ -37,7 +37,7 @@ const SignupPage = () => {
         role: ["PSYCHOLOGIST"],
       });
       alert("Cadastro realizado com sucesso!");
-      navigate("/"); // Redireciona para a página de login
+      navigate("/"); 
     } catch (err) {
       setError("Erro ao realizar o cadastro. Verifique os dados e tente novamente.");
     }
