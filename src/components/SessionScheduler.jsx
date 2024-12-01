@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
-import { fetchSessions, createSession, fetchPatients } from '../services/api';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { fetchSessions, createSession, deleteSession, fetchPatients } from '../services/api';
+import { AiOutlineCheckCircle, AiOutlineDelete } from 'react-icons/ai';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../styles/SessionScheduler.css';
 import { registerLocale } from 'react-datepicker';
@@ -37,17 +37,41 @@ const SessionScheduler = () => {
     loadData();
   }, []);
 
+  const isTimeValid = (time) => {
+    const timeRegex = /^([01]\d|2[0-3]):00$/;
+    return timeRegex.test(time);
+  };
+
+  const handleDelete = async (sessionId) => {
+    try {
+      await deleteSession(sessionId); 
+      setSuccessMessage('Sessão excluída com sucesso!');
+      setError('');
+      const response = await fetchSessions(); 
+      setSessions(response.data);
+    } catch (err) {
+      setError('Erro ao excluir sessão.');
+      setSuccessMessage('');
+    }
+  };
+
   const handleSchedule = async () => {
     if (!selectedDate || !time || !selectedPatient) {
       setError('Por favor, preencha todos os campos.');
       setSuccessMessage('');
       return;
     }
-
-    const [hours, minutes] = time.split(':');
+  
+    if (!isTimeValid(time)) {
+      setError('Apenas horários fechados (ex: 13:00, 14:00) são permitidos.');
+      setSuccessMessage('');
+      return;
+    }
+  
+    const [hours, minutes] = time.split(':').map(Number);
     const scheduledDateTime = new Date(selectedDate);
-    scheduledDateTime.setHours(hours, minutes);
-
+    scheduledDateTime.setHours(hours, minutes, 0, 0);
+  
     try {
       await createSession({
         date: scheduledDateTime,
@@ -61,7 +85,11 @@ const SessionScheduler = () => {
       const response = await fetchSessions();
       setSessions(response.data);
     } catch (err) {
-      setError('Erro ao agendar sessão. Verifique os dados inseridos.');
+      if (err.response && err.response.status === 400) {
+        setError(err.response.data.message);
+      } else {
+        setError('Erro ao agendar sessão. Verifique os dados inseridos.');
+      }
       setSuccessMessage('');
     }
   };
@@ -72,7 +100,6 @@ const SessionScheduler = () => {
       {error && <div className="error-message">{error}</div>}
       {successMessage && <div className="success-message">{successMessage}</div>}
 
-      {/* Seleção de Paciente */}
       <div className="patient-picker">
         <label htmlFor="patient">Paciente:</label>
         <select
@@ -90,7 +117,6 @@ const SessionScheduler = () => {
         </select>
       </div>
 
-      {/* Calendário */}
       <div className="calendar-container">
         <label htmlFor="date">Data:</label>
         <DatePicker
@@ -104,7 +130,6 @@ const SessionScheduler = () => {
         />
       </div>
 
-      {/* Seleção de Hora */}
       <div className="time-picker">
         <label htmlFor="time">Hora:</label>
         <input
@@ -115,13 +140,11 @@ const SessionScheduler = () => {
           required
         />
       </div>
-
-      {/* Botão de Agendamento */}
+ 
       <button className="schedule-button" onClick={handleSchedule}>
         Confirmar agendamento
       </button>
 
-      {/* Lista de Sessões Agendadas */}
       <h3 className="scheduled-title">Sessões Agendadas</h3>
       <ul className="scheduled-list">
         {sessions.map((session) => (
@@ -142,6 +165,12 @@ const SessionScheduler = () => {
                 minute: '2-digit',
               })}
             </div>
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(session.id)}
+            >
+              <AiOutlineDelete /> Excluir
+            </button>
           </li>
         ))}
       </ul>

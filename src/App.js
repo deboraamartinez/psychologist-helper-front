@@ -7,6 +7,7 @@ import DashboardPage from "./pages/DashboardPage";
 import ManagePatientsPage from "./pages/ManagePatientsPage";
 import AddPatientPage from './pages/AddPatientPage';
 import PatientDetailsPage from './pages/PatientDetailsPage';
+import PsychologistDetailsPage from './pages/PsychologistDetailsPage';
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/patients" element={<ManagePatientsPage />} />
         <Route path="/add-patient" element={<AddPatientPage />} />
         <Route path="/patients/:id" element={<PatientDetailsPage />} />
+        <Route path="/profile" element={<PsychologistDetailsPage />} />
+
       </Routes>
     </Router>
   );

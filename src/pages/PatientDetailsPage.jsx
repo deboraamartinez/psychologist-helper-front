@@ -36,15 +36,6 @@ const PatientDetailsPage = () => {
           </li>
         ))}
       </ul>
-
-      {/* <h2>Pagamentos</h2>
-      <ul>
-        {patient.payments.map((payment) => (
-          <li key={payment.id}>
-            {payment.date} - {payment.amount} ({payment.status})
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };

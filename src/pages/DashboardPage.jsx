@@ -8,7 +8,6 @@ const DashboardPage = () => {
   const menuItems = [
     { label: "Agendamentos", description: "Gerencie suas sessões e horários", route: "/sessions" },
     { label: "Paciente", description: "Gerencie seus pacientes", route: "/patients" },
-    { label: "Pagamentos", description: "Gerencie os pagamentos recebidos", route: "/payments" },
     { label: "Perfil", description: "Edite suas informações pessoais", route: "/profile" },
   ];
 

@@ -2,6 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://psychologist-helper-production.up.railway.app",
+ //baseURL: "http://localhost:3000/"
 });
 
 
@@ -36,5 +37,8 @@ export const fetchPatientDetails = (id) => api.get(`/patients/${id}`);
 export const fetchSessions = () => api.get("/sessions");
 
 export const createSession = (data) => api.post("/sessions", data);
+export const deleteSession = (id) => api.delete(`/sessions/${id}`);
+export const fetchPsychologistDetails = ()=> api.get("/psychologist")
+export const updatePsychologistDetails = ()=> api.put("/psychologist")
 
 export default api;

@@ -1,29 +1,99 @@
-.patient-details-container {
-    padding: 2rem;
-    background-color: #f6f6f6;
-    min-height: 100vh;
-  }
-  
-  .patient-details-container h1,
-  .patient-details-container h2 {
-    color: #333;
-  }
-  
-  .patient-details-container p {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .patient-details-container ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .patient-details-container li {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+.psychologist-details-container {
+  padding: 2rem;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.psychologist-details-container h1,
+.psychologist-details-container h2 {
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.psychologist-details-container form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+}
+
+.psychologist-details-container .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.psychologist-details-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.psychologist-details-container input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #2c3e50;
+  transition: border-color 0.3s;
+}
+
+.psychologist-details-container input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.psychologist-details-container .save-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.psychologist-details-container .save-button:hover {
+  background-color: #218c54;
+}
+
+.psychologist-details-container .success-message {
+  color: #27ae60;
+  background-color: #eafaf1;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.psychologist-details-container .error-message {
+  color: #c0392b;
+  background-color: #fdecea;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.psychologist-details-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.psychologist-details-container h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.psychologist-details-container .form-group input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.psychologist-details-container .form-group input:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
