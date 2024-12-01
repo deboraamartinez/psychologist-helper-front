@@ -28,7 +28,7 @@ const AddPatientPage = () => {
     try {
       await createPatient(formData);
       alert("Paciente criado com sucesso!");
-      navigate("/manage-patients");
+      navigate("/patients");
     } catch (err) {
       setError("Erro ao criar paciente. Verifique os dados e tente novamente.");
     }
@@ -41,7 +41,7 @@ const AddPatientPage = () => {
         <label>Nome</label>
         <input
           type="text"
-          name="name"
+          name="fullName"
           value={formData.fullName}
           onChange={handleChange}
           required

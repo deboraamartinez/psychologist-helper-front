@@ -43,12 +43,6 @@ const ManagePatientsPage = () => {
                 Visualizar
               </button>
               <button
-                className="edit-button"
-                onClick={() => navigate(`/edit-patient/${patient.id}`)}
-              >
-                Editar
-              </button>
-              <button
                 className="delete-button"
                 onClick={() => handleDelete(patient.id)}
               >
